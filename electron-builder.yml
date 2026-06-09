@@ -43,6 +43,8 @@ nsis:
 
 linux:
   category: Utility
+  # Required by the .deb target (derived from package.json author otherwise).
+  maintainer: alexcloudstar <alexcloudstar@gmail.com>
   target:
     - AppImage
     - deb
