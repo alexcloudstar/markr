@@ -1,6 +1,6 @@
 {
   "name": "markr",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "In-memory session timestamp marker",
   "type": "module",
   "main": "./out/main/index.js",
@@ -11,7 +11,12 @@
     "start": "electron-vite preview",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
-    "typecheck": "bun run typecheck:node && bun run typecheck:web"
+    "typecheck": "bun run typecheck:node && bun run typecheck:web",
+    "dist": "electron-vite build && electron-builder",
+    "dist:dir": "electron-vite build && electron-builder --dir",
+    "dist:mac": "electron-vite build && electron-builder --mac",
+    "dist:win": "electron-vite build && electron-builder --win",
+    "dist:linux": "electron-vite build && electron-builder --linux"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.2.5",
@@ -28,6 +33,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "electron": "42.4.0",
+    "electron-builder": "26.15.2",
     "electron-vite": "5.0.0",
     "tailwindcss": "4.3.0",
     "typescript": "6.0.3",

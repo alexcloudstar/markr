@@ -1,0 +1,48 @@
+appId: com.alexcloudstar.markr
+productName: Markr
+copyright: Copyright © 2026 alexcloudstar
+
+directories:
+  output: release
+  buildResources: build
+
+# Vite bundles the renderer (React etc.) and main/preload only import Electron
+# and Node builtins, so the packaged app needs nothing but the build output.
+files:
+  - out/**/*
+  - package.json
+
+# Auto-create / upload to a GitHub Release matching the pushed tag.
+publish:
+  provider: github
+  owner: alexcloudstar
+  repo: markr
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - zip
+  # Unsigned build: skip code signing entirely (no Apple Developer cert).
+  identity: null
+
+# Disable notarization (requires an Apple Developer account).
+afterSign: null
+
+dmg:
+  title: ${productName} ${version}
+
+win:
+  target:
+    - nsis
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+
+linux:
+  category: Utility
+  target:
+    - AppImage
+    - deb
