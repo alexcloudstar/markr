@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  build:
     strategy:
       fail-fast: false
       matrix:
@@ -34,7 +34,46 @@ jobs:
       - name: Build bundle
         run: bun run build
 
-      - name: Package and publish
-        run: bunx electron-builder --publish always
+      # Build installers only; a single later job publishes them together to
+      # avoid the race where parallel jobs clobber each other's release assets.
+      - name: Package
+        run: bunx electron-builder --publish never
+
+      - name: Upload installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.os }}
+          if-no-files-found: error
+          path: |
+            release/*.dmg
+            release/*.zip
+            release/*.exe
+            release/*.AppImage
+            release/*.deb
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download all installers
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "Markr ${GITHUB_REF_NAME}
+
+          Unsigned installers for macOS, Windows, and Linux.
+
+          First launch (one time, because the build is unsigned):
+          - macOS: right-click Markr.app, choose Open, then confirm. Or System Settings > Privacy & Security > Open Anyway.
+          - Windows: on the SmartScreen prompt, click More info, then Run anyway." \
+            artifacts/*

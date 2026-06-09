@@ -12,12 +12,6 @@ files:
   - out/**/*
   - package.json
 
-# Auto-create / upload to a GitHub Release matching the pushed tag.
-publish:
-  provider: github
-  owner: alexcloudstar
-  repo: markr
-
 mac:
   category: public.app-category.productivity
   target:
