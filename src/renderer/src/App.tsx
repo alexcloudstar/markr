@@ -5,7 +5,7 @@ import { Timer } from './components/Timer'
 import { Controls } from './components/Controls'
 import { MarksList } from './components/MarksList'
 
-function App(): JSX.Element {
+const App = (): JSX.Element => {
   const { isRunning, elapsedMs, marks, start, stop, addMark } = useSession()
 
   return (

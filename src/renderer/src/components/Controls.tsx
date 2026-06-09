@@ -12,7 +12,7 @@ type ControlsProps = {
   onMark: () => void
 }
 
-export function Controls({ isRunning, onStart, onStop, onMark }: ControlsProps): JSX.Element {
+export const Controls = ({ isRunning, onStart, onStop, onMark }: ControlsProps): JSX.Element => {
   return (
     <div className="flex flex-col gap-3">
       {isRunning ? (

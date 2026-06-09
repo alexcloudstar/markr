@@ -18,7 +18,7 @@ export type Session = {
   addMark: () => void
 }
 
-export function useSession(): Session {
+export const useSession = (): Session => {
   const [startTime, setStartTime] = useState<number | null>(null)
   const [elapsedMs, setElapsedMs] = useState(0)
   const [marks, setMarks] = useState<Mark[]>([])

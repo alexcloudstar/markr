@@ -6,7 +6,7 @@ const MARK_SHORTCUT = 'CommandOrControl+M'
 
 let mainWindow: BrowserWindow | null = null
 
-function registerMarkShortcut(): void {
+const registerMarkShortcut = (): void => {
   if (globalShortcut.isRegistered(MARK_SHORTCUT)) return
   const ok = globalShortcut.register(MARK_SHORTCUT, () => {
     mainWindow?.webContents.send('mark')
@@ -17,13 +17,13 @@ function registerMarkShortcut(): void {
   }
 }
 
-function unregisterMarkShortcut(): void {
+const unregisterMarkShortcut = (): void => {
   if (globalShortcut.isRegistered(MARK_SHORTCUT)) {
     globalShortcut.unregister(MARK_SHORTCUT)
   }
 }
 
-function createWindow(): void {
+const createWindow = (): void => {
   mainWindow = new BrowserWindow({
     width: 460,
     height: 720,

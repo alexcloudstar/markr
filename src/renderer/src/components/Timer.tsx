@@ -8,7 +8,7 @@ type TimerProps = {
   isRunning: boolean
 }
 
-export function Timer({ elapsedMs, isRunning }: TimerProps): JSX.Element {
+export const Timer = ({ elapsedMs, isRunning }: TimerProps): JSX.Element => {
   return (
     <div className="flex flex-col items-center gap-3 py-8">
       <span className="font-mono text-7xl font-semibold tabular-nums tracking-tight">

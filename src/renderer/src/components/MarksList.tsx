@@ -8,7 +8,7 @@ type MarksListProps = {
   marks: Mark[]
 }
 
-export function MarksList({ marks }: MarksListProps): JSX.Element {
+export const MarksList = ({ marks }: MarksListProps): JSX.Element => {
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-2">
       <div className="flex items-baseline justify-between px-1">
