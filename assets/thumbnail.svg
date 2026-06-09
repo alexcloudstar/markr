@@ -1,0 +1,196 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Markr: mark the moment while you record">
+
+  <!-- ============================================================= -->
+  <!-- FONTS + DEFS                                                  -->
+  <!-- ============================================================= -->
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Space+Mono:wght@400;700&family=Archivo:wght@500;600&display=swap');
+      .display { font-family:'Unbounded','Arial Black',sans-serif; }
+      .mono    { font-family:'Space Mono','SF Mono',Menlo,monospace; }
+      .body    { font-family:'Archivo','Helvetica Neue',sans-serif; }
+      .sys     { font-family:'Helvetica Neue',Arial,sans-serif; }
+    ]]></style>
+
+    <radialGradient id="bgGrad" cx="78%" cy="22%" r="95%">
+      <stop offset="0%"   stop-color="#16241E"/>
+      <stop offset="48%"  stop-color="#0E1814"/>
+      <stop offset="100%" stop-color="#070C0A"/>
+    </radialGradient>
+
+    <radialGradient id="limeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#C6F24E" stop-opacity="0.40"/>
+      <stop offset="55%"  stop-color="#C6F24E" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#C6F24E" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="limeFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#E4FF8A"/>
+      <stop offset="100%" stop-color="#B6E63C"/>
+    </linearGradient>
+
+    <linearGradient id="capTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#243029"/>
+      <stop offset="100%" stop-color="#18211C"/>
+    </linearGradient>
+
+    <!-- dot grid -->
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#C6F24E" opacity="0.06"/>
+    </pattern>
+
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.4 0"/>
+    </filter>
+
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- ============================================================= -->
+  <!-- BACKGROUND                                                    -->
+  <!-- ============================================================= -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+  <rect width="1280" height="720" fill="url(#dots)"/>
+  <ellipse cx="1020" cy="180" rx="520" ry="440" fill="url(#limeGlow)"/>
+
+  <!-- ============================================================= -->
+  <!-- TOP BAR: REC counter                                          -->
+  <!-- ============================================================= -->
+  <g transform="translate(978,52)" filter="url(#softShadow)">
+    <rect width="238" height="46" rx="12" fill="#111A15" stroke="#2A3A30" stroke-width="1.5"/>
+    <circle cx="28" cy="23" r="8" fill="#FF4D4D"/>
+    <circle cx="28" cy="23" r="13" fill="none" stroke="#FF4D4D" stroke-opacity="0.4" stroke-width="2"/>
+    <text x="50" y="30" class="mono" font-size="18" font-weight="700"
+          fill="#FF6B6B" letter-spacing="1">REC</text>
+    <text x="100" y="30" class="mono" font-size="18" font-weight="700"
+          fill="#EAF7C8" letter-spacing="1">00:23:41</text>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- WORDMARK + TAGLINE (left)                                     -->
+  <!-- ============================================================= -->
+  <!-- highlighter swipe through the lower third of the letters -->
+  <g transform="rotate(-1.4 60 290)">
+    <rect x="50" y="266" width="512" height="46" rx="6" fill="#C6F24E" opacity="0.92"/>
+  </g>
+  <text x="58" y="304" class="display" font-size="150" font-weight="900"
+        fill="#F4F7EC" letter-spacing="-4">MARKR</text>
+
+  <text x="64" y="372" class="body" font-size="31" font-weight="600" fill="#E7ECDD">
+    Mark the moment while you record.
+  </text>
+  <text x="64" y="412" class="body" font-size="31" font-weight="600" fill="#9FB39A">
+    Stop rewatching everything after.
+  </text>
+
+  <!-- repo line -->
+  <g transform="translate(64,452)">
+    <path d="M13 0a13 13 0 0 0-4.1 25.3c.65.12.89-.28.89-.63v-2.2c-3.6.78-4.4-1.7-4.4-1.7-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.09-.79.09-.79 1.3.09 2 1.4 2 1.4 1.2 2 3.1 1.4 3.8 1.1.12-.85.46-1.4.83-1.8-2.9-.33-5.9-1.4-5.9-6.4 0-1.4.51-2.6 1.4-3.5-.14-.33-.59-1.7.13-3.5 0 0 1.1-.35 3.5 1.3a12 12 0 0 1 6.4 0c2.4-1.6 3.5-1.3 3.5-1.3.72 1.8.27 3.2.13 3.5.84.91 1.4 2.1 1.4 3.5 0 5-3 6.1-5.9 6.4.47.41.9 1.2.9 2.4v3.6c0 .35.24.76.9.63A13 13 0 0 0 13 0z"
+          fill="#9FB39A" transform="scale(0.95)"/>
+    <text x="34" y="20" class="mono" font-size="19" font-weight="400" fill="#9FB39A" letter-spacing="0.5">github.com/alexcloudstar/markr</text>
+    <text x="34" y="20" class="mono" font-size="19" font-weight="700" fill="#C6F24E" letter-spacing="0.5" transform="translate(355,0)">· open source</text>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- HOTKEY KEYCAPS (right) - "the part that matters"               -->
+  <!-- ============================================================= -->
+  <text x="1080" y="178" text-anchor="middle" class="mono" font-size="17" font-weight="700"
+        fill="#C6F24E" letter-spacing="4">GLOBAL HOTKEY</text>
+
+  <g filter="url(#softShadow)">
+    <!-- Cmd keycap -->
+    <g transform="translate(958,196)">
+      <rect x="0" y="6" width="104" height="104" rx="20" fill="#0C1410"/>
+      <rect x="0" y="0" width="104" height="104" rx="20" fill="url(#capTop)" stroke="#3A4A40" stroke-width="1.5"/>
+      <rect x="10" y="9" width="84" height="40" rx="12" fill="#FFFFFF" opacity="0.04"/>
+      <text x="52" y="70" text-anchor="middle" class="sys" font-size="52" font-weight="600" fill="#EAF7C8">&#8984;</text>
+    </g>
+    <!-- plus -->
+    <text x="1086" y="262" text-anchor="middle" class="display" font-size="40" font-weight="800" fill="#7E927A">+</text>
+    <!-- M keycap (active / lime) -->
+    <g transform="translate(1112,196)">
+      <rect x="0" y="6" width="104" height="104" rx="20" fill="#6F8A18"/>
+      <rect x="0" y="0" width="104" height="104" rx="20" fill="url(#limeFace)" stroke="#D6FF6A" stroke-width="1.5"/>
+      <rect x="10" y="9" width="84" height="40" rx="12" fill="#FFFFFF" opacity="0.22"/>
+      <text x="52" y="72" text-anchor="middle" class="display" font-size="56" font-weight="900" fill="#16210B">M</text>
+    </g>
+  </g>
+
+  <text x="1086" y="350" text-anchor="middle" class="mono" font-size="16" font-weight="400"
+        fill="#8DA288">works even when unfocused</text>
+  <text x="1086" y="374" text-anchor="middle" class="mono" font-size="15" font-weight="400"
+        fill="#5F7460">Ctrl+M on Windows / Linux</text>
+
+  <!-- ============================================================= -->
+  <!-- RECORDING TIMELINE (bottom band) - the core loop, drawn        -->
+  <!-- ============================================================= -->
+  <!-- band backdrop -->
+  <rect x="48" y="566" width="1184" height="120" rx="22" fill="#0B120F" stroke="#202C25" stroke-width="1.5"/>
+
+  <!-- track baseline -->
+  <line x1="80" y1="636" x2="1200" y2="636" stroke="#27332B" stroke-width="2"/>
+
+  <!-- waveform: recorded (bright lime) -->
+  <path class="wave" stroke="#C6F24E" stroke-width="5" stroke-linecap="round" fill="none"
+    d="M100,626 L100,646 M122,614 L122,658 M144,621 L144,651 M166,604 L166,668 M188,624 L188,648 M210,609 L210,663 M232,618 L232,654 M254,600 L254,672 M276,625 L276,647 M298,612 L298,660 M320,620 L320,652 M342,606 L342,666 M364,623 L364,649 M386,608 L386,664 M408,616 L408,656 M430,602 L430,670 M452,626 L452,646 M474,614 L474,658 M496,621 L496,651 M518,604 L518,668 M540,624 L540,648 M562,609 L562,663 M584,618 L584,654 M606,600 L606,672 M628,625 L628,647 M650,612 L650,660 M672,620 L672,652 M694,606 L694,666 M716,623 L716,649 M738,608 L738,664"/>
+
+  <!-- waveform: upcoming (dim) -->
+  <path stroke="#3C4D3F" stroke-width="5" stroke-linecap="round" fill="none"
+    d="M774,626 L774,646 M796,614 L796,658 M818,621 L818,651 M840,604 L840,668 M862,624 L862,648 M884,609 L884,663 M906,618 L906,654 M928,600 L928,672 M950,625 L950,647 M972,612 L972,660 M994,620 L994,652 M1016,606 L1016,666 M1038,623 L1038,649 M1060,608 L1060,664 M1082,616 L1082,656 M1104,602 L1104,670 M1126,626 L1126,646 M1148,614 L1148,658 M1170,621 L1170,651"/>
+
+  <!-- playhead -->
+  <g filter="url(#glow)">
+    <line x1="760" y1="588" x2="760" y2="684" stroke="#F4F7EC" stroke-width="3"/>
+  </g>
+  <polygon points="760,588 750,576 770,576" fill="#F4F7EC"/>
+
+  <!-- ============================================================= -->
+  <!-- MARKER FLAGS pinned on the timeline                            -->
+  <!-- ============================================================= -->
+  <g class="mono" font-size="15" font-weight="700">
+    <!-- flag at 02:14 -->
+    <g transform="translate(298,0)" filter="url(#softShadow)">
+      <line x1="0" y1="540" x2="0" y2="636" stroke="#C6F24E" stroke-width="2.5"/>
+      <rect x="-34" y="516" width="68" height="30" rx="8" fill="#C6F24E"/>
+      <text x="0" y="536" text-anchor="middle" fill="#13200A">02:14</text>
+      <circle cx="0" cy="636" r="6" fill="#C6F24E" stroke="#0B120F" stroke-width="2"/>
+    </g>
+    <!-- flag at 08:47 -->
+    <g transform="translate(540,0)" filter="url(#softShadow)">
+      <line x1="0" y1="540" x2="0" y2="636" stroke="#C6F24E" stroke-width="2.5"/>
+      <rect x="-34" y="516" width="68" height="30" rx="8" fill="#C6F24E"/>
+      <text x="0" y="536" text-anchor="middle" fill="#13200A">08:47</text>
+      <circle cx="0" cy="636" r="6" fill="#C6F24E" stroke="#0B120F" stroke-width="2"/>
+    </g>
+    <!-- flag at 15:03 (upcoming side, dimmer pole) -->
+    <g transform="translate(906,0)" filter="url(#softShadow)">
+      <line x1="0" y1="540" x2="0" y2="636" stroke="#7E9A2E" stroke-width="2.5"/>
+      <rect x="-34" y="516" width="68" height="30" rx="8" fill="#9FB33C"/>
+      <text x="0" y="536" text-anchor="middle" fill="#13200A">15:03</text>
+      <circle cx="0" cy="636" r="6" fill="#9FB33C" stroke="#0B120F" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- timeline label -->
+  <text x="80" y="592" class="mono" font-size="14" font-weight="400" fill="#5F7460" letter-spacing="2">SESSION · 3 MARKERS</text>
+
+  <!-- ============================================================= -->
+  <!-- TEXTURE OVERLAYS                                               -->
+  <!-- ============================================================= -->
+  <rect width="1280" height="720" filter="url(#grain)" opacity="0.05"/>
+  <radialGradient id="vig" cx="50%" cy="46%" r="78%">
+    <stop offset="64%" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+  </radialGradient>
+  <rect width="1280" height="720" fill="url(#vig)"/>
+
+</svg>
